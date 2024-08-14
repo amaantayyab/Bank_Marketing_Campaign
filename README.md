@@ -5,27 +5,27 @@ This project involves predicting whether a client will subscribe to a term depos
 
 ### Dataset
 The dataset used in this analysis contains the following columns:
-- **age**: Age of the client.
-- **job**: Job type of the client.
-- **marital**: Marital status of the client.
-- **education**: Education level of the client.
-- **default**: Has credit in default? (binary: "yes","no")
-- **housing**: Has housing loan? (binary: "yes","no")
-- **loan**: Has personal loan? (binary: "yes","no")
-- **contact**: Contact communication type.
-- **month**: Last contact month of year.
-- **day_of_week**: Last contact day of the week.
-- **duration**: Last contact duration, in seconds.
-- **campaign**: Number of contacts performed during this campaign and for this client.
-- **pdays**: Number of days that passed by after the client was last contacted from a previous campaign.
-- **previous**: Number of contacts performed before this campaign and for this client.
-- **poutcome**: Outcome of the previous marketing campaign.
-- **emp.var.rate**: Employment variation rate - quarterly indicator.
-- **cons.price.idx**: Consumer price index - monthly indicator.
-- **cons.conf.idx**: Consumer confidence index - monthly indicator.
-- **euribor3m**: Euribor 3 month rate - daily indicator.
-- **nr.employed**: Number of employees - quarterly indicator.
-- **y**: Has the client subscribed a term deposit? (binary: "yes", "no")
+- **Age**: Age of the client.
+- **Job**: Job type of the client.
+- **Marital**: Marital status of the client.
+- **Education**: Education level of the client.
+- **Credit_default**: Has credit in default? (binary: "yes","no")
+- **Housing_loan**: Has housing loan? (binary: "yes","no")
+- **Personal_loan**: Has personal loan? (binary: "yes","no")
+- **Contact_type**: Contact communication type.
+- **Last_contact_month**: Last contact month of year.
+- **Last_contact_day**: Last contact day of the week.
+- **Duration**: Last contact duration, in seconds.
+- **Cur_campaign_counts**: Number of contacts performed during this campaign and for this client.
+- **Days_since_last_contact**: Number of days that passed by after the client was last contacted from a previous campaign.
+- **Prev_campaign_counts**: Number of contacts performed before this campaign and for this client.
+- **Prev_outcome**: Outcome of the previous marketing campaign.
+- **Employment_Var**: Employment variation rate - quarterly indicator.
+- **Consumer_price_index**: Consumer price index - monthly indicator.
+- **Consumer_confidence_index**: Consumer confidence index - monthly indicator.
+- **Euribor_3M**: Euribor 3 month rate - daily indicator.
+- **Num_of_employees**: Number of employees - quarterly indicator.
+- **Subscription**: Has the client subscribed a term deposit? (binary: "yes", "no")
 
 ### Analysis Steps
 1. **Data Preparation**:
