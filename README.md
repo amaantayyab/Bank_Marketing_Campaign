@@ -1,65 +1,59 @@
-## Predicting Subscription to Term Deposits
+# 📈 Bank Marketing Campaign Analysis
 
-### Project Overview
-This project involves predicting whether a client will subscribe to a term deposit based on a dataset related to direct marketing campaigns of a Portuguese banking institution. The primary objective is to build a model that accurately predicts the subscription status (yes/no) based on various client attributes and campaign details.
+## Overview
 
-### Dataset
-The dataset used in this analysis contains the following columns:
-- **Age**: Age of the client.
-- **Job**: Job type of the client.
-- **Marital**: Marital status of the client.
-- **Education**: Education level of the client.
-- **Credit_default**: Has credit in default? (binary: "yes","no")
-- **Housing_loan**: Has housing loan? (binary: "yes","no")
-- **Personal_loan**: Has personal loan? (binary: "yes","no")
-- **Contact_type**: Contact communication type.
-- **Last_contact_month**: Last contact month of year.
-- **Last_contact_day**: Last contact day of the week.
-- **Duration**: Last contact duration, in seconds.
-- **Cur_campaign_counts**: Number of contacts performed during this campaign and for this client.
-- **Days_since_last_contact**: Number of days that passed by after the client was last contacted from a previous campaign.
-- **Prev_campaign_counts**: Number of contacts performed before this campaign and for this client.
-- **Prev_outcome**: Outcome of the previous marketing campaign.
-- **Employment_Var**: Employment variation rate - quarterly indicator.
-- **Consumer_price_index**: Consumer price index - monthly indicator.
-- **Consumer_confidence_index**: Consumer confidence index - monthly indicator.
-- **Euribor_3M**: Euribor 3 month rate - daily indicator.
-- **Num_of_employees**: Number of employees - quarterly indicator.
-- **Subscription**: Has the client subscribed a term deposit? (binary: "yes", "no")
+This project analyzes the direct marketing campaigns of a Portuguese banking institution to develop strategies for improving future campaigns. By leveraging exploratory data analysis and machine learning techniques, specifically using the XGBoost classifier, we aim to predict whether a client will subscribe to a term deposit based on various demographic and campaign-related features.
 
-### Analysis Steps
-1. **Data Preparation**:
-    - Imported necessary libraries.
-    - Loaded the dataset.
-    - Checked for null values and duplicates.
-    - Removed duplicates.
-    - Preprocessed numerical and categorical columns.
+## Table of Contents
 
-2. **Exploratory Data Analysis (EDA)**:
-    - **Target Variable Distribution**: Visualized using a count plot.
-    - **Distribution of Numerical Features**: Visualized using histograms.
-    - **Correlation Matrix of Numerical Features**: Visualized using a heatmap.
-    - **Distribution of Categorical Features**: Visualized using count plots.
+- [Overview](#overview)
+- [Dataset Description](#dataset-description)
+- [Project Structure](#project-structure)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Feature Engineering](#feature-engineering)
+- [Modeling](#modeling)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-3. **Data Preprocessing**:
-    - Standardized numerical features using `StandardScaler`.
-    - One-hot encoded categorical features using `OneHotEncoder`.
+---
 
-4. **Model Building**:
-    - Split the dataset into training and testing sets.
-    - Defined a pipeline with preprocessing steps and a `DecisionTreeClassifier`.
-    - Trained the decision tree classifier on the training set.
+## Dataset Description
 
-5. **Model Evaluation**:
-    - Predicted the test set results.
-    - Evaluated the classifier using a confusion matrix, classification report, and accuracy score.
-    - Performed cross-validation and plotted the cross-validation scores.
+The dataset provides information on the marketing campaigns conducted by the bank, which were primarily based on phone calls. The goal is to predict whether a client will subscribe to a term deposit after a marketing contact.
 
-### Key Insights
-- **Target Variable Distribution**: The dataset is imbalanced with more "no" responses than "yes".
-- **Numerical Features**: Distributions of age, duration, and campaign show significant variability.
-- **Correlations**: Some features like `emp.var.rate` and `nr.employed` show strong correlations.
-- **Categorical Features**: Distribution of job types, marital status, education levels, and contact types provide insights into the client demographics.
+### What is a Term Deposit?
 
-### Conclusion
-The decision tree classifier provides a baseline model for predicting term deposit subscriptions. Further improvements can be made by exploring other machine learning algorithms, feature engineering, and hyperparameter tuning. The EDA has revealed important patterns and insights that could help in better targeting and improving marketing campaigns.
+A **Term Deposit** is a bank investment where a sum of money is deposited for a fixed period at a predetermined interest rate. Funds are locked in until the term ends, offering higher interest rates compared to regular savings accounts. It's considered a low-risk investment with guaranteed returns.
+
+### Features
+
+| Feature                     | Type    | Description                                                                                                     |
+|-----------------------------|---------|-----------------------------------------------------------------------------------------------------------------|
+| **Age**                     | int64   | Age of the client in years.                                                                                     |
+| **Job**                     | object  | Type of job (e.g., 'admin.', 'technician', 'services', etc.).                                                   |
+| **Marital**                 | object  | Marital status ('married', 'single', 'divorced').                                                               |
+| **Education**               | object  | Education background ('secondary', 'tertiary', 'primary', 'unknown').                                           |
+| **Credit_default**          | object  | Has credit in default? ('no', 'yes').                                                                           |
+| **Bank_balance**            | int64   | Balance of the client.                                                                                          |
+| **Housing_loan**            | object  | Has housing loan? ('yes', 'no').                                                                                |
+| **Personal_loan**           | object  | Has personal loan? ('no', 'yes').                                                                               |
+| **Contact_type**            | object  | Contact communication type ('unknown', 'cellular', 'telephone').                                                |
+| **Last_contact_day**        | int64   | Last contact day of the week.                                                                                   |
+| **Last_contact_month**      | object  | Last contact month of the year (e.g., 'may', 'jun', 'jul', etc.).                                               |
+| **Call_Duration**           | int64   | Duration of the last contact in seconds.                                                                        |
+| **Current_campaign_contact**| int64   | Number of contacts performed during this campaign for this client.                                              |
+| **Days_since_prev_contact** | int64   | Days passed since the client was last contacted in a previous campaign (999 means not previously contacted).     |
+| **Prev_campaign_contact**   | int64   | Number of contacts performed before this campaign for this client.                                              |
+| **Prev_outcome**            | object  | Outcome of the previous marketing campaign ('unknown', 'other', 'failure', 'success').                          |
+| **Term_deposit**            | object  | **Target variable**: Has the client subscribed to a term deposit? ('yes', 'no').                                |
+
+---
+
+
+
