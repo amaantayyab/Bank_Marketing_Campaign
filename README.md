@@ -8,7 +8,6 @@ This project analyzes the direct marketing campaigns of a Portuguese banking ins
 
 - [Overview](#overview)
 - [Dataset Description](#dataset-description)
-- [Project Structure](#project-structure)
 - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
 - [Feature Engineering](#feature-engineering)
 - [Modeling](#modeling)
@@ -100,24 +99,21 @@ Two machine learning algorithms were evaluated to predict whether a client will 
 ### Model Evaluation
 
 - **Cross-Validation**: Performed 5-fold cross-validation to assess model performance and generalizability.
-- **Performance Metrics**: Evaluated models using accuracy, precision, recall, F1-score, and ROC-AUC score.
-- **Hyperparameter Tuning**: Employed grid search and random search methods to optimize model hyperparameters.
-
+  
 **Model Selection**:
 
-- The **XGBoost Classifier** outperformed the Random Forest Classifier across all performance metrics.
+- The **XGBoost Classifier** outperformed the Random Forest Classifier in the Cross Validation score.
 - **XGBoost** demonstrated better handling of class imbalance and provided more precise predictions.
 
 ### Training the Final Model
 
 - Trained the optimized XGBoost model on the full training dataset.
 - **Feature Importance**: Plotted feature importance scores to interpret and understand the influence of each feature on predictions.
-  
-  ![Feature Importance](path/to/feature_importance_plot.png)
+
   
 - **Confusion Matrix**: Generated a confusion matrix to visualize true vs. predicted classifications.
   
-  ![Confusion Matrix](path/to/confusion_matrix.png)
+
   
 ---
 
@@ -125,8 +121,6 @@ Two machine learning algorithms were evaluated to predict whether a client will 
 
 - **Accuracy**: The final XGBoost model achieved an accuracy of **85.66%** on the test dataset.
 - **Precision**: High precision indicates a low false positive rate in predictions.
-- **Recall**: Satisfactory recall suggests the model effectively identifies clients who will subscribe.
-- **ROC-AUC Score**: The model achieved a strong ROC-AUC score, indicating excellent discriminative ability.
 
 **Interpretation**:
 
